@@ -1,0 +1,152 @@
+<html>
+<head>
+  <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+	
+	<title>Nos Adherents</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="test/assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="test/assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="test/assets/css/noscript.css" /></noscript>
+		<!--[if lte IE 8]><link rel="stylesheet" href="test/assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="test/assets/css/ie9.css" /><![endif]-->
+		
+	
+	<script>
+      // Note: This example requires that you consent to location sharing when
+      // prompted by your browser. If you see the error "The Geolocation service
+      // failed.", it means you probably did not give permission for the browser to
+      // locate you.
+
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 32.338707, lng: -6.347601},
+          zoom: 6
+        });
+        var infoWindow = new google.maps.InfoWindow({map: map});
+
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Location found.');
+            map.setCenter(pos);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+      }
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+      }
+    </script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnKiu7_3XG3UHIjSn0AzquxlhSLkW58YY&callback=initMap">
+    </script>
+	
+	
+  </head>
+  <body>
+  
+			 <!-- NAV SECTION -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+				<!--Logo-->
+                <a class="navbar-brand" href="indext.html"><img src="assets/img/logo.png" alt="Logo_Imtiaz" style="width: 100px;"/></a>
+            </div>
+          
+           
+        </div>
+    </div>
+	
+     <!--END NAV SECTION -->
+	 
+
+	 <div id="wrapper">
+
+			<div id="main">
+				<div id="reel">
+
+					<!-- Header Item -->
+
+						<div id="header" class="item" data-width="400">
+							<div class="inner">
+								<h1 style="font-family: arial narrow; ">Offres plus proches</h1>
+								
+							</div>
+							<details close >
+     					 <summary style="color: white; margin-left:50px;"><strong>Choix du service</strong></summary>
+						 		
+							
+								<form action="action_page.php">
+										<select name="services">
+											<option value="Plus Proches">plus proche</option>
+											<option value="sante">Sante</option>
+											<option value="education">Education</option>
+											<option value="Beaute">Beaute</option>
+										</select>
+								<br><br>
+								<input type="submit" value="GO">
+</form>
+  
+							
+							
+							</details>
+							<select name="Mode">
+											<option value="Map View">Map View</option>
+											<option value="List View">List View</option>
+											
+										</select>
+						</div>
+  
+				</div>
+  
+  
+  </div>
+    <div id="map"></div>
+
+  </div>
+    
+    
+  </body>
+  <div  style="position: absolute; bottom: 0; background-image: url(img/background.jpg); color: black;" >
+        <div class="container" >
+            <div class="row ">
+                &copy; 2016 Saadia Nemmaoui | All Right Reserved |Imtiaz				
+					
+            </div>
+            
+        </div>
+       
+    </div> 
+</html>
